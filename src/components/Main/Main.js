@@ -47,7 +47,7 @@ const Main = () => {
                                                 <div className='d-flex text-center'>
                                                     {each.show.genres.map((eachgenre) => {
                                                         return (
-                                                            <div className='px-2 pb-1 ms-1 rounded-4 border bg-primary' style={{ color: "white" }}>
+                                                            <div className='px-2 py-1 ms-1 rounded-4 border bg-primary' style={{ color: "white" }}>
                                                                 {eachgenre}
                                                             </div>
                                                         )
