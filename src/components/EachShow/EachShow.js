@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Axios from "axios";
+import BookTicket from './BookTicket/BookTicket';
 const EachShow = () => {
     const [data, setData] = useState('');
 
@@ -72,9 +73,16 @@ const EachShow = () => {
                                     Status : {data.status}
                                 </div>
                             </div>
+                            <div className='d-flex py-3 my-3'>
+                                <button class="btn btn-dark rounded-4 w-100 fw-semibold py-2"
+                                data-bs-toggle="modal" data-bs-target="#bookTicket" >Book Tickets
+                                    <i class="bi bi-arrow-right ps-2"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>}
+                <BookTicket showName={data.name} />
         </div>
     )
 }
