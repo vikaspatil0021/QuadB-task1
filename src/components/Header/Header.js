@@ -8,15 +8,15 @@ const Header = () => {
                     <div className='d-flex align-items-center'>
 
                         <a class="navbar-brand fw-bold " href="/">
-                        <img src={logo} alt='Main_logo' className='me-2' width='40px' />
-                        IMBD</a>
+                        <img src={logo} alt='Main_logo' className='me-2' width='50px' />
+                        </a>
                     </div>
 
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link text-dark fw-bold" aria-current="page" href="/">
                             <i class="bi bi-house-door fs-5"></i>
-                            HOME</a>
+                            </a>
                         </li>
 
                     </ul>
