@@ -37,7 +37,7 @@ const EachShow = () => {
                         <div className='d-flex justify-content-center justify-content-lg-start align-items-center  col-12 col-lg-6 p-3 p-lg-0'>
                             <div>
 
-                                <img src={data.image.original} class="rounded-4 eachshow-img"  alt="..." />
+                                <img src={data.image.original} class="rounded-4 eachshow-img" alt="..." />
                             </div>
                         </div>
                         <div className='col-12 col-lg-6 text-start p-3 p-lg-0'>
@@ -63,6 +63,14 @@ const EachShow = () => {
                             <div id='summary' className='mt-3'>
                                 summary
 
+                            </div>
+                            <div className='d-flex justify-content-between fw-bold mt-4'>
+                                <div>
+                                    Premiered : {data.premiered}
+                                </div>
+                                <div>
+                                    Status : {data.status}
+                                </div>
                             </div>
                         </div>
                     </div>
