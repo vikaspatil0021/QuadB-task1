@@ -28,6 +28,8 @@ const EachShow = () => {
 
     return (
         <div id='eachshow-div' className='d-flex justify-content-center align-items-center' style={{ backgroundColor: "#d3d3d3" }}>
+            <BookTicket showName={data.name} />
+
             {(data === '') ?
                 <div className='d-flex justify-content-center align-items-center minHeight' style={{ width: "100%" }}>
                     <div class="spinner-border text-dark" role="status"></div>
@@ -75,15 +77,25 @@ const EachShow = () => {
                             </div>
                             <div className='d-flex py-3 my-3'>
                                 <button class="btn btn-dark rounded-4 w-100 fw-semibold py-2"
-                                data-bs-toggle="modal" data-bs-target="#bookTicket" >Book Tickets
+                                    data-bs-toggle="modal" data-bs-target="#bookTicket" >Book Tickets
                                     <i class="bi bi-arrow-right ps-2"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>}
-                <BookTicket showName={data.name} />
+
+            <div className='fixed-top w-100 d-flex justify-content-center'>
+            <div id='liveToast' class="mt-4 toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Tickets booked successfully
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
         </div>
+        </div >
     )
 }
 

@@ -9,16 +9,33 @@ const BookTicket = (props) => {
 
 
     const bookTickets = (e) => {
-        e.preventDefault()
-        var myModal = bootstrap.Modal.getOrCreateInstance('#bookTicket');
-        console.log(myModal)
-        myModal.hide();
-        if (userData.email != '' && userData.phone != '' && userData.name != 0) {
+        e.preventDefault();
+        const icon = document.querySelector('#icon')
+        const loader = document.querySelector('#loader');
+        const toastLive = document.getElementById('liveToast')
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive)
 
-            const a = localStorage.setItem('ticket', userData);
+        if(userData.name!='' && userData.email!='' && userData.phone!='' ){
+
+            loader.classList.remove('d-none');
+            icon.classList.add('d-none')
+            
+            localStorage.setItem('ticket', userData);
             setTimeout(() => {
+                setUserData({
+                    email: '',
+                    phone: '',
+                    name: ''
+                });
+                loader.classList.add('d-none');
+                icon.classList.remove('d-none')
+                var myModal = bootstrap.Modal.getOrCreateInstance('#bookTicket');
+                myModal.hide();;
+                toastBootstrap.show()
+
             }, 1000);
         }
+
     }
     return (
         <div>
@@ -29,35 +46,35 @@ const BookTicket = (props) => {
                             <h5 class="modal-title">{props.showName}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form onSubmit={bookTickets}>
+                        <form method='POST' onSubmit={(e) => bookTickets(e)}>
 
                             <div class="modal-body">
 
                                 <div class="input-group flex-nowrap">
-                                    <input type="text" class="form-control" placeholder="Full Name" 
+                                    <input type="text" class="form-control" placeholder="Full Name"
                                         onChange={(e) => {
-                                            setUserData({  ...userData ,name: e.target.value})
+                                            setUserData({ ...userData, name: e.target.value })
                                         }} value={userData.name} required />
                                 </div>
                                 <div class="input-group flex-nowrap mt-3">
-                                    <input type="email" class="form-control" placeholder="Email" 
+                                    <input type="email" class="form-control" placeholder="Email"
                                         onChange={(e) => {
-                                            setUserData({  ...userData,email: e.target.value })
+                                            setUserData({ ...userData, email: e.target.value })
                                         }} value={userData.email}
                                         required />
                                 </div>
                                 <div class="input-group flex-nowrap mt-3">
-                                    <input type="number" class="form-control" placeholder="Phone" 
+                                    <input type="number" class="form-control" placeholder="Phone"
                                         onChange={(e) => {
-                                            setUserData({  ...userData,phone: e.target.value })
+                                            setUserData({ ...userData, phone: e.target.value })
                                         }} value={userData.phone}
                                         required />
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-dark rounded-4" >Book Tickets
-                                    <i class="bi bi-arrow-right ps-2"></i>
-
+                                    <i id='icon' class="bi bi-arrow-right ps-2"></i>
+                                    <div id='loader' class="ms-2 d-none spinner-border spinner-border-sm" role="status"></div>
                                 </button>
                             </div>
                         </form>
