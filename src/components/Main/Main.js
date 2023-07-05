@@ -34,7 +34,7 @@ const Main = () => {
 
                                     <div class="card rounded-4" >
                                         <div className='rounded-4 borderBot' style={{ overflow: "hidden"}}>
-                                            <img src={each.show.image.original} class="rounded-4" alt="..." />
+                                            <img src={each?each.show.image.original:''} class="rounded-4" alt="..." />
                                         </div>
                                         <div class="card-body p-0 ">
                                             <h5 class="card-title mt-2 fw-bold">{each.show.name}</h5>
