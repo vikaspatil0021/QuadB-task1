@@ -29,8 +29,7 @@ const Main = () => {
                 <div className='d-flex justify-content-center pb-5' >
                     <div className='mt-5 pt-5  d-flex px-3 px-md-5' style={{ width: "1100px", maxWidth: "1100px" }}>
                         <div className='gridContainer'>
-                            {showsData.filter((each) => {
-                                if(each.show.image){
+                            {showsData.map((each) => {
                                 return (
 
                                     <div class="card rounded-4" >
@@ -63,7 +62,6 @@ const Main = () => {
                                         </div>
                                     </div>
                                 )
-}
                             })}
                         </div>
                     </div>
