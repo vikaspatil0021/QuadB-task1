@@ -10,9 +10,12 @@ const Main = () => {
         Axios.get("https://api.tvmaze.com/search/shows?q=all")
             .then((res) => {
                 console.log(res.data);
+                const arr = res.data.filter((each)=>{
+    return each.show.image!==null;
+})
                 setTimeout(() => {
 
-                    setShowsData(res.data)
+                    setShowsData(arr);
                 }, 1000)
             }).catch((err) => {
                 console.log(err.message);
