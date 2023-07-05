@@ -29,12 +29,13 @@ const Main = () => {
                 <div className='d-flex justify-content-center pb-5' >
                     <div className='mt-5 pt-5  d-flex px-3 px-md-5' style={{ width: "1100px", maxWidth: "1100px" }}>
                         <div className='gridContainer'>
-                            {showsData.map((each) => {
+                            {showsData.filter((each) => {
+                                if(each.show.image){
                                 return (
 
                                     <div class="card rounded-4" >
                                         <div className='rounded-4 borderBot' style={{ overflow: "hidden"}}>
-                                            <img src={(each.show.image)?each.show.image.original:''} class="rounded-4" alt="..." />
+                                            <img src={each.show.image.original} class="rounded-4" alt="..." />
                                         </div>
                                         <div class="card-body p-0 ">
                                             <h5 class="card-title mt-2 fw-bold">{each.show.name}</h5>
@@ -62,6 +63,7 @@ const Main = () => {
                                         </div>
                                     </div>
                                 )
+}
                             })}
                         </div>
                     </div>
